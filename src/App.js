@@ -61,9 +61,8 @@ const withLifecycle = lifecycle({
   }
 })
 
-const AppWithStyles = compose(
+export default compose(
   withLifecycle,
-  withStyles(styles)
+  withStyles(styles),
+  hot(module)
 )(App)
-
-export default hot(module)(AppWithStyles)
