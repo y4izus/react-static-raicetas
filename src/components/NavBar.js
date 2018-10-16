@@ -1,5 +1,4 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { withStyles } from '@material-ui/core/styles'
@@ -13,9 +12,8 @@ import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Avatar from '@material-ui/core/Avatar'
+
+import MenuOptions from './MenuOptions'
 
 const drawerWidth = 240
 
@@ -81,11 +79,6 @@ const styles = theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 0
   }
 })
 
@@ -153,54 +146,7 @@ class NavBar extends React.Component {
           </div>
           <Divider />
           <List>
-            <ListItem button>
-              <Avatar
-                alt="La Idea"
-                src="/img/iconos/idea-proyecto.svg"
-                className={classes.avatar}
-              />
-              <ListItemText primary="La Idea" />
-            </ListItem>
-            <ListItem
-              button
-              component={Link}
-              to="/recetas-tradicionales"
-              label="Recetas Tradicionales"
-            >
-              <Avatar
-                alt="Recetas Tradicionales"
-                src="/img/iconos/olla-cocina-tradicional.png"
-                className={classes.avatar}
-              />
-              <ListItemText primary="Recetas Tradicionales" />
-            </ListItem>
-            <ListItem button>
-              <Avatar
-                alt="Mapa Gastronómico"
-                src="/img/iconos/mapa-gastronomico.svg"
-                className={classes.avatar}
-              />
-              <ListItemText primary="Mapa Gastronómico" />
-            </ListItem>
-            <ListItem button>
-              <Avatar
-                alt="Productos de Calidad"
-                src="/img/iconos/productos-tradicionales.svg"
-                className={classes.avatar}
-              />
-              <ListItemText primary="Productos de Calidad" />
-            </ListItem>
-          </List>
-          <Divider />
-          <List>
-            <ListItem button>
-              <Avatar
-                alt="¡Escríbenos!"
-                src="/img/iconos/contacto.svg"
-                className={classes.avatar}
-              />
-              <ListItemText primary="¡Escríbenos!" />
-            </ListItem>
+            <MenuOptions />
           </List>
         </Drawer>
         {children}
