@@ -1,5 +1,4 @@
 import React from 'react'
-//
 import Typography from '@material-ui/core/Typography'
 
 export default () => (
@@ -8,7 +7,8 @@ export default () => (
       This is what we're all about.
     </Typography>
     <Typography type="body1">
-      React, static sites, performance, speed. It's the stuff that makes us tick.
+      React, static sites, performance, speed. It's the stuff that makes us
+      tick.
     </Typography>
   </div>
 )

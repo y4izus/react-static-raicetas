@@ -1,8 +1,6 @@
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
-//
 import Typography from '@material-ui/core/Typography'
-
 
 export default withRouteData(({ post }) => (
   <div>
@@ -12,8 +10,6 @@ export default withRouteData(({ post }) => (
     <Typography type="title" gutterBottom>
       {post.title}
     </Typography>
-    <Typography type="body1">
-      {post.body}
-    </Typography>
+    <Typography type="body1">{post.body}</Typography>
   </div>
 ))

@@ -28,29 +28,25 @@ const styles = {
   }
 }
 
-const App = props => {
-  const { classes } = props
-
-  return (
-    <Router>
-      <div className={classes.container}>
-        <CssBaseline />
-        <AppBar className={classes.appBar} color="default" position="static">
-          <nav>
-            <Tabs className={classes.tabs} value={false}>
-              <Tab component={Link} to="/" label="Home" />
-              <Tab component={Link} to="/about" label="About" />
-              <Tab component={Link} to="/blog" label="Blog" />
-            </Tabs>
-          </nav>
-        </AppBar>
-        <div className={classes.content}>
-          <Routes />
-        </div>
+const App = ({ classes }) => (
+  <Router>
+    <div className={classes.container}>
+      <CssBaseline />
+      <AppBar className={classes.appBar} color="default" position="static">
+        <nav>
+          <Tabs className={classes.tabs} value={false}>
+            <Tab component={Link} to="/" label="Home" />
+            <Tab component={Link} to="/about" label="About" />
+            <Tab component={Link} to="/blog" label="Blog" />
+          </Tabs>
+        </nav>
+      </AppBar>
+      <div className={classes.content}>
+        <Routes />
       </div>
-    </Router>
-  )
-}
+    </div>
+  </Router>
+)
 
 const withLifecycle = lifecycle({
   // Remove the server-side injected CSS.
