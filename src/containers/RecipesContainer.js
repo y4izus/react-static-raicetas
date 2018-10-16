@@ -2,17 +2,19 @@ import React from 'react'
 import { withRouteData, Link } from 'react-static'
 import Typography from '@material-ui/core/Typography'
 
-export default withRouteData(({ posts }) => (
+export default withRouteData(({ recipes }) => (
   <div>
     <Typography type="headline" gutterBottom>
       It's blog time.
     </Typography>
     <Typography type="body1" component="div">
-      All Posts:
+      All recipes:
       <ul>
-        {posts.map(post => (
-          <li key={post.id}>
-            <Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+        {recipes.map(recipe => (
+          <li key={recipe.title}>
+            <Link to={`/recetas-tradicionales/${recipe.slug}`}>
+              {recipe.title}
+            </Link>
           </li>
         ))}
       </ul>

@@ -1,47 +1,45 @@
-import axios from 'axios'
 import React, { Component } from 'react'
 import { SheetsRegistry } from 'react-jss/lib/jss'
 import JssProvider from 'react-jss/lib/JssProvider'
-import { MuiThemeProvider, createMuiTheme, createGenerateClassName } from '@material-ui/core/styles'
+import {
+  MuiThemeProvider,
+  createMuiTheme,
+  createGenerateClassName
+} from '@material-ui/core/styles'
 
 // Your Material UI Custom theme
 import theme from './src/theme'
 
+import { recipes } from './content/recipes'
+
 export default {
   getSiteData: () => ({
-    title: 'React Static',
+    title: 'React Static'
   }),
-  getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
-    return [
-      {
-        path: '/',
-        component: 'src/containers/Home',
-      },
-      {
-        path: '/about',
-        component: 'src/containers/About',
-      },
-      {
-        path: '/blog',
-        component: 'src/containers/Blog',
-        getData: () => ({
-          posts,
-        }),
-        children: posts.map(post => ({
-          path: `/post/${post.id}`,
-          component: 'src/containers/Post',
-          getData: () => ({
-            post,
-          }),
-        })),
-      },
-      {
-        is404: true,
-        component: 'src/containers/404',
-      },
-    ]
-  },
+  getRoutes: () => [
+    {
+      path: '/',
+      component: 'src/containers/Home'
+    },
+    {
+      path: '/about',
+      component: 'src/containers/About'
+    },
+    {
+      path: '/recetas-tradicionales',
+      component: 'src/containers/RecipesContainer',
+      getData: () => ({ recipes }),
+      children: recipes.map(recipe => ({
+        path: `/${recipe.slug}`,
+        component: 'src/containers/Recipe',
+        getData: () => ({ recipe })
+      }))
+    },
+    {
+      is404: true,
+      component: 'src/containers/404'
+    }
+  ],
   renderToHtml: (render, Comp, meta) => {
     // Create a sheetsRegistry instance.
     const sheetsRegistry = new SheetsRegistry()
@@ -52,7 +50,10 @@ export default {
     const generateClassName = createGenerateClassName()
 
     const html = render(
-      <JssProvider registry={sheetsRegistry} generateClassName={generateClassName}>
+      <JssProvider
+        registry={sheetsRegistry}
+        generateClassName={generateClassName}
+      >
         <MuiThemeProvider theme={muiTheme} sheetsManager={new Map()}>
           <Comp />
         </MuiThemeProvider>
@@ -64,20 +65,22 @@ export default {
     return html
   },
   Document: class CustomHtml extends Component {
-    render () {
-      const {
-        Html, Head, Body, children, renderMeta,
-      } = this.props
+    render() {
+      const { Html, Head, Body, children, renderMeta } = this.props
 
       return (
         <Html>
           <Head>
             <meta charSet="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1"
+            />
             <link
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+              href="https://fonts.googleapis.com/css?family=Special+Elite"
               rel="stylesheet"
             />
+            >
           </Head>
           <Body>
             {children}
@@ -86,5 +89,5 @@ export default {
         </Html>
       )
     }
-  },
+  }
 }

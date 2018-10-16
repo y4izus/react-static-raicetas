@@ -37,7 +37,11 @@ const App = ({ classes }) => (
           <Tabs className={classes.tabs} value={false}>
             <Tab component={Link} to="/" label="Home" />
             <Tab component={Link} to="/about" label="About" />
-            <Tab component={Link} to="/blog" label="Blog" />
+            <Tab
+              component={Link}
+              to="/recetas-tradicionales"
+              label="Recetas Tradicionales"
+            />
           </Tabs>
         </nav>
       </AppBar>
