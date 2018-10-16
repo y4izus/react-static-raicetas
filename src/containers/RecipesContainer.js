@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { withRouteData, Link } from 'react-static'
 import Typography from '@material-ui/core/Typography'
 
 export default withRouteData(({ recipes }) => (
-  <div>
+  <Fragment>
     <Typography type="headline" gutterBottom>
       It's blog time.
     </Typography>
@@ -19,5 +19,5 @@ export default withRouteData(({ recipes }) => (
         ))}
       </ul>
     </Typography>
-  </div>
+  </Fragment>
 ))

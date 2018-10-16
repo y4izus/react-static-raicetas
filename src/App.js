@@ -10,6 +10,8 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import { withStyles } from '@material-ui/core/styles'
 
+import NavBar from './components/NavBar'
+
 // Custom styles
 const styles = {
   '@global': {
@@ -32,7 +34,7 @@ const App = ({ classes }) => (
   <Router>
     <div className={classes.container}>
       <CssBaseline />
-      <AppBar className={classes.appBar} color="default" position="static">
+      {/* <AppBar className={classes.appBar} color="default" position="static">
         <nav>
           <Tabs className={classes.tabs} value={false}>
             <Tab component={Link} to="/" label="Home" />
@@ -44,10 +46,10 @@ const App = ({ classes }) => (
             />
           </Tabs>
         </nav>
-      </AppBar>
-      <div className={classes.content}>
+      </AppBar> */}
+      <NavBar className={classes.content}>
         <Routes />
-      </div>
+      </NavBar>
     </div>
   </Router>
 )
