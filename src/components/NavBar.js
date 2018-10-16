@@ -5,7 +5,6 @@ import { withStyles } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import List from '@material-ui/core/List'
 import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
@@ -15,7 +14,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 
 import MenuOptions from './MenuOptions'
 
-const drawerWidth = 240
+const drawerWidth = 300
 
 const styles = theme => ({
   root: {
@@ -145,9 +144,7 @@ class NavBar extends React.Component {
             </IconButton>
           </div>
           <Divider />
-          <List>
-            <MenuOptions />
-          </List>
+          <MenuOptions />
         </Drawer>
         {children}
       </div>
